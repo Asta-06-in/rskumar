@@ -7,8 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0D2137;--navy-mid:#152D4A;--navy-light:#1E3D62;--gold:#B8963E;--gold-light:#D4AF5A;--white:#fff;--off:#F7F8FA;--border:#E2E6ED;--text:#1A202C;--tmid:#4A5568;--tmuted:#718096}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:2px solid var(--gold);transition:height .3s,box-shadow .3s}
 nav.sc{height:56px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
@@ -133,23 +132,22 @@ footer{background:#080F19;padding:52px 48px 26px}
 .fbot{max-width:1100px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .fc2{color:rgba(255,255,255,.2);font-size:.73rem}
 @media(max-width:800px){
-  nav{padding:0 16px}.nl{display:none}
-  .hero{padding:90px 16px 50px}.hero-inner,.abl,.apl{grid-template-columns:1fr}
-  .vms{padding:36px 16px}.vmi{grid-template-columns:1fr}.vmdiv{display:none}
-  section{padding:56px 16px}.sgrid,.tgrid,.team-grid{grid-template-columns:1fr}
-  .fgrid{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr}
-  .ctab{padding:44px 16px}
-}
+nav{padding:0 16px}.nl{display:none}
+.hero{padding:90px 16px 50px}.hero-inner,.abl,.apl{grid-template-columns:1fr}
+.vms{padding:36px 16px}.vmi{grid-template-columns:1fr}.vmdiv{display:none}
+section{padding:56px 16px}.sgrid,.tgrid,.team-grid{grid-template-columns:1fr}
+.fgrid{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr}
+.ctab{padding:44px 16px}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <a href="#home" class="nb">
+    <img src="data:image/jpeg;base64,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" alt="CA India" style="height:44px;width:auto;border-radius:4px;">
     <div>
       <div class="nb-name">R S KUMAR &amp; ASSOCIATES</div>
-      <div class="nb-sub">Chartered Accountants · Chennai</div>
+      <div class="nb-sub">Chartered Accountants &middot; Chennai</div>
     </div>
   </a>
   <ul class="nl">
@@ -162,11 +160,10 @@ footer{background:#080F19;padding:52px 48px 26px}
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <div class="hbadge">Est. 1986 · Chennai</div>
+      <div class="hbadge">Est. 1986 &middot; Chennai</div>
       <h1>Unleash Your<br><span>Financial Potential</span></h1>
       <p class="hdesc">Get the best hassle-free Accounting, Auditing &amp; Compliance services in Chennai. Trusted by 1000+ clients for over 35 years.</p>
       <div class="hbtns">
@@ -183,7 +180,6 @@ footer{background:#080F19;padding:52px 48px 26px}
   </div>
 </section>
 
-<!-- VISION / MISSION -->
 <div class="vms">
   <div class="vmi">
     <div class="vmb">
@@ -199,7 +195,6 @@ footer{background:#080F19;padding:52px 48px 26px}
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="con">
     <div class="abl">
@@ -224,7 +219,6 @@ footer{background:#080F19;padding:52px 48px 26px}
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="con">
     <div class="reveal" style="text-align:center">
@@ -246,7 +240,6 @@ footer{background:#080F19;padding:52px 48px 26px}
   </div>
 </section>
 
-<!-- TEAM -->
 <section id="team">
   <div class="con">
     <div class="reveal" style="text-align:center">
@@ -254,42 +247,39 @@ footer{background:#080F19;padding:52px 48px 26px}
       <h2 class="stitle" style="text-align:center">Our Team</h2>
       <div class="srule" style="margin:13px auto 36px"></div>
     </div>
-
     <div class="team-sub-hd reveal">Founder Partners</div>
     <div class="team-grid">
       <div class="tcard gold-border reveal d1">
         <h3>Suraj Kumar S</h3>
-        <span class="role-pill">Founder Partner · B.Com, FCA, CISA</span><br>
-        <span class="cert-pill">ICAI Certified: Concurrent Audit · NBFC · Internal Audit · Forensic Accounting &amp; Fraud Detection</span>
+        <span class="role-pill">Founder Partner &middot; B.Com, FCA, CISA</span><br>
+        <span class="cert-pill">ICAI Certified: Concurrent Audit &middot; NBFC &middot; Internal Audit &middot; Forensic Accounting &amp; Fraud Detection</span>
         <p>Chartered Accountant with over a decade of experience specializing in comprehensive financial solutions to diverse clientele across various industries, with a significant focus on the banking and non-banking financial services sector.</p>
       </div>
       <div class="tcard gold-border reveal d2">
         <h3>Sivakumar R</h3>
-        <span class="role-pill">Founder Partner · B.Com, FCA, LII, DISA</span><br>
+        <span class="role-pill">Founder Partner &middot; B.Com, FCA, LII, DISA</span><br>
         <span class="cert-pill">ICAI Certified: Concurrent Audit of Banks</span>
         <p>Chartered Accountant with over four decades of experience specializing in comprehensive solutions to diverse clientele across various industries, with a significant focus on audits and taxation.</p>
       </div>
     </div>
-
     <div class="team-sub-hd reveal">Consultants</div>
     <div class="team-grid">
       <div class="tcard navy-border reveal d1">
         <h3>Aarthi Balasubramanian</h3>
-        <span class="role-pill">Consultant · B.Com, FCA, CISA</span>
-        <p>A Chartered Accountant with over 13 years of experience in Direct Tax Advisory, specializing in advising corporates, partnership firms, LLPs, and high-net-worth individuals on complex tax matters. Brings extensive experience in corporate tax planning, transaction advisory, tax controversy, and regulatory compliance.</p>
+        <span class="role-pill">Consultant &middot; B.Com, FCA, CISA</span>
+        <p>A Chartered Accountant with over 13 years of experience in Direct Tax Advisory, specializing in advising corporates, partnership firms, LLPs, and high-net-worth individuals on complex tax matters.</p>
         <p>Regularly represents clients in tax assessments and appellate proceedings and advises on tax implications of business restructurings, investments, and strategic transactions.</p>
       </div>
       <div class="tcard navy-border reveal d2">
         <h3>Deepthi Balasubramanian</h3>
-        <span class="role-pill">Consultant · B.Com, FCA, CISA</span>
-        <p>A qualified Chartered Accountant with over 13 years of professional experience in Direct and Indirect Tax advisory. Possesses deep expertise in advising NGOs, corporate entities, and partnership firms — helping navigate complex tax regulations while ensuring full statutory compliance.</p>
+        <span class="role-pill">Consultant &middot; B.Com, FCA, CISA</span>
+        <p>A qualified Chartered Accountant with over 13 years of professional experience in Direct and Indirect Tax advisory. Deep expertise in advising NGOs, corporate entities, and partnership firms.</p>
         <p>Known for a client-centric approach, strong analytical skills, and providing proactive guidance to optimize tax positions and manage risk effectively.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="con">
     <div class="reveal" style="text-align:center">
@@ -298,14 +288,13 @@ footer{background:#080F19;padding:52px 48px 26px}
       <div class="srule" style="margin:13px auto 36px"></div>
     </div>
     <div class="tgrid">
-      <div class="tc reveal d1"><span class="qm">"</span><p>Thanks to Mr. Sivakumar and Team, we were able to streamline our operations and achieve significant cost savings without compromising on quality. Their consultants were proactive and responsive throughout.</p><div class="ta"><div class="tav">S</div><div><div class="tname">Mr. Selva</div><div class="trole">Business Owner</div></div></div></div>
-      <div class="tc reveal d2"><span class="qm">"</span><p>I highly recommend this team for their deep industry knowledge and commitment to client success. Their innovative approach to problem-solving brought tangible results to our organization.</p><div class="ta"><div class="tav">A</div><div><div class="tname">Mr. Anand</div><div class="trole">Corporate Client</div></div></div></div>
+      <div class="tc reveal d1"><span class="qm">"</span><p>Thanks to Mr. Sivakumar and Team, we were able to streamline our operations and achieve significant cost savings without compromising on quality.</p><div class="ta"><div class="tav">S</div><div><div class="tname">Mr. Selva</div><div class="trole">Business Owner</div></div></div></div>
+      <div class="tc reveal d2"><span class="qm">"</span><p>I highly recommend this team for their deep industry knowledge and commitment to client success. Their innovative approach brought tangible results to our organization.</p><div class="ta"><div class="tav">A</div><div><div class="tname">Mr. Anand</div><div class="trole">Corporate Client</div></div></div></div>
       <div class="tc reveal d3"><span class="qm">"</span><p>The expertise and professionalism exceeded our expectations. Their tailored solutions addressed our immediate issues and set us on a path for sustained growth.</p><div class="ta"><div class="tav">R</div><div><div class="tname">Mr. Ramesh</div><div class="trole">Manufacturing Sector</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- APPOINTMENT -->
 <section id="appointment">
   <div class="con">
     <div class="reveal">
@@ -348,14 +337,12 @@ footer{background:#080F19;padding:52px 48px 26px}
   </div>
 </section>
 
-<!-- CTA -->
 <div class="ctab">
   <h2>Contact Us Today &amp; Start Achieving Your Business Goals</h2>
   <p>At R S Kumar &amp; Associates, we're dedicated to providing exceptional service tailored to your unique needs.</p>
   <a href="#appointment" class="btn-gold">Get Started Today</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft">
     <div class="fb">
@@ -367,7 +354,7 @@ footer{background:#080F19;padding:52px 48px 26px}
     <div class="fc"><h4>Contact</h4>
       <div class="cl"><span>📍</span><p>AP-345, 36th Street, 7th Sector,<br>KK Nagar, Chennai – 600 078</p></div>
       <div class="cl"><span>✉️</span><a href="mailto:info@rskumar.in">info@rskumar.in</a></div>
-      <div class="cl"><span>📞</span><p><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a><br><a href="tel:04424719373">044 24719373</a></p></div>
+      <div class="cl"><span>📞</span><p><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a></p></div>
     </div>
   </div>
   <div class="fbot">
@@ -382,10 +369,8 @@ window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60));
 const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
-  const h=this.getAttribute('href');
-  if(h==='#')return;
-  e.preventDefault();
-  const t=document.querySelector(h);
+  const h=this.getAttribute('href');if(h==='#')return;
+  e.preventDefault();const t=document.querySelector(h);
   if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
 document.getElementById('fd').min=new Date().toISOString().split('T')[0];
