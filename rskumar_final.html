@@ -8,90 +8,100 @@
 <style>
 :root{--navy:#0D2137;--navy-mid:#152D4A;--navy-light:#1E3D62;--gold:#B8963E;--gold-light:#D4AF5A;--white:#fff;--off:#F7F8FA;--border:#E2E6ED;--text:#1A202C;--tmid:#4A5568;--tmuted:#718096}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.6}
+body{font-family:"Inter",sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:2px solid var(--gold);transition:height .3s,box-shadow .3s}
 nav.sc{height:56px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
-.nb{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nb-name{font-family:'Merriweather',serif;color:#fff;font-size:.9rem;font-weight:700;line-height:1.2}
+.nb{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
+.nb-name{font-family:"Merriweather",serif;color:#fff;font-size:.9rem;font-weight:700;line-height:1.2}
 .nb-sub{color:var(--gold-light);font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase}
 .nl{display:flex;gap:4px;list-style:none;align-items:center}
-.nl a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;font-weight:500;padding:6px 13px;border-radius:4px;transition:color .2s,background .2s}
-.nl a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nl a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;font-weight:500;padding:6px 13px;border-radius:4px;transition:color .2s,background .2s;cursor:pointer}
+.nl a:hover,.nl a.active{color:#fff;background:rgba(255,255,255,.12)}
 .nl .cta a{background:var(--gold);color:var(--navy);font-weight:700;padding:7px 18px;border-radius:4px}
 .nl .cta a:hover{background:var(--gold-light)}
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1a3550 100%);display:flex;align-items:center;padding:100px 48px 60px;position:relative;overflow:hidden}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;position:relative;z-index:1}
+.page{display:none;padding-top:68px;min-height:100vh}
+.page.active{display:block}
+.hero{min-height:calc(100vh - 68px);background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1a3550 100%);display:flex;align-items:center;padding:60px 48px;position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
 .hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,.15);border:1px solid rgba(184,150,62,.4);color:var(--gold-light);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px}
-.hbadge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
-.hero h1{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:18px}
+.hbadge::before{content:"";width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero h1{font-family:"Merriweather",serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:18px}
 .hero h1 span{color:var(--gold-light)}
 .hdesc{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.8;margin-bottom:32px;max-width:460px}
 .hbtns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--navy);padding:12px 26px;font-weight:700;font-size:.83rem;letter-spacing:.5px;text-decoration:none;border-radius:4px;transition:background .2s,transform .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;display:inline-block}
+.btn-gold{background:var(--gold);color:var(--navy);padding:12px 26px;font-weight:700;font-size:.83rem;letter-spacing:.5px;text-decoration:none;border-radius:4px;transition:background .2s,transform .2s;border:none;cursor:pointer;font-family:"Inter",sans-serif;display:inline-block}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
-.btn-ow{border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:12px 26px;font-weight:600;font-size:.83rem;text-decoration:none;border-radius:4px;transition:border-color .2s,background .2s;display:inline-block}
+.btn-ow{border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:12px 26px;font-weight:600;font-size:.83rem;text-decoration:none;border-radius:4px;transition:border-color .2s,background .2s;display:inline-block;cursor:pointer}
 .btn-ow:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
 .hstats{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:10px;overflow:hidden}
-.sbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:26px 20px;text-align:center;transition:background .3s}
-.sbox:hover{background:rgba(255,255,255,.11)}
-.snum{font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:var(--gold-light);line-height:1}
+.sbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:26px 20px;text-align:center}
+.snum{font-family:"Merriweather",serif;font-size:2.2rem;font-weight:900;color:var(--gold-light);line-height:1}
 .splus{font-size:1.2rem;color:var(--gold)}
 .slbl{color:rgba(255,255,255,.5);font-size:.75rem;font-weight:500;letter-spacing:.5px;margin-top:5px}
 .vms{background:var(--navy-mid);padding:52px 48px}
 .vmi{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;gap:56px;align-items:start}
 .vmdiv{background:rgba(184,150,62,.3)}
 .vmlbl{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.vmb h3{font-family:'Merriweather',serif;font-size:1.05rem;color:#fff;font-weight:700;line-height:1.6}
+.vmb h3{font-family:"Merriweather",serif;font-size:1.05rem;color:#fff;font-weight:700;line-height:1.6}
 .vmb p{color:rgba(255,255,255,.5);font-size:.86rem;margin-top:8px;line-height:1.75}
-section{padding:80px 48px}
+.page-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:60px 48px;text-align:center;border-bottom:3px solid var(--gold)}
+.page-header h1{font-family:"Merriweather",serif;color:#fff;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;margin-bottom:10px}
+.page-header p{color:rgba(255,255,255,.6);font-size:.95rem;max-width:540px;margin:0 auto}
+.sec{padding:70px 48px}
 .con{max-width:1100px;margin:0 auto}
-.slabel{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.stitle{font-family:'Merriweather',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--navy);line-height:1.25}
+.slabel{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.stitle{font-family:"Merriweather",serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--navy);line-height:1.25}
 .srule{width:40px;height:3px;background:var(--gold);margin:13px 0 32px;border-radius:2px}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-#about{background:var(--off)}
-.abl{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.aiw{position:relative}
-.aiw img{width:100%;border-radius:8px;display:block;min-height:280px;object-fit:cover;background:var(--navy-mid)}
-.abo{position:absolute;bottom:-18px;right:-18px;background:var(--gold);color:var(--navy);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 8px 30px rgba(184,150,62,.4)}
-.abo .big{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;line-height:1}
-.abo .sm{font-size:.68rem;font-weight:700;letter-spacing:1px;margin-top:4px}
-.abt p{color:var(--tmid);font-size:.93rem;line-height:1.85;margin-bottom:14px}
-.abt strong{color:var(--navy)}
-#services{background:var(--white)}
-.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sc{background:var(--off);padding:28px 24px;border-radius:6px;border-left:3px solid transparent;transition:border-color .3s,box-shadow .3s,transform .3s,background .3s;cursor:default}
-.sc:hover{border-left-color:var(--gold);background:var(--white);box-shadow:0 8px 28px rgba(13,33,55,.1);transform:translateY(-4px)}
-.sic{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px}
-.sc h3{font-family:'Merriweather',serif;font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.4}
-.sc p{color:var(--tmuted);font-size:.8rem;line-height:1.7}
-#team{background:var(--off)}
-.team-sub-hd{border-left:4px solid var(--gold);padding-left:14px;margin-bottom:22px;font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--navy)}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:40px}
-.tcard{background:var(--white);border-radius:6px;padding:28px;transition:box-shadow .3s,transform .3s}
-.tcard:hover{box-shadow:0 10px 28px rgba(13,33,55,.1);transform:translateY(-3px)}
-.tcard.gold-border{border-left:4px solid var(--gold)}
-.tcard.navy-border{border-left:4px solid var(--navy)}
-.tcard h3{font-family:'Merriweather',serif;font-size:1.1rem;color:var(--navy);margin-bottom:6px}
-.role-pill{display:inline-block;background:rgba(13,33,55,.08);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:10px}
-.cert-pill{display:inline-block;background:rgba(184,150,62,.12);color:#7a5c10;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:3px;margin-bottom:12px}
-.tcard p{color:var(--tmid);font-size:.86rem;line-height:1.8;margin-bottom:8px}
-#testimonials{background:var(--navy)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:40px}
+.team-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(13,33,55,.08);cursor:pointer;transition:transform .3s,box-shadow .3s;border:1px solid var(--border)}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(13,33,55,.15)}
+.team-card img{width:100%;height:220px;object-fit:cover;object-position:top;background:var(--navy-mid)}
+.team-card-body{padding:20px}
+.team-card-body h3{font-family:"Merriweather",serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:5px}
+.team-card-body .role{color:var(--gold);font-size:.75rem;font-weight:600;margin-bottom:8px}
+.team-card-body .quals{font-size:.72rem;color:var(--tmuted);margin-bottom:12px}
+.view-profile{display:inline-flex;align-items:center;gap:5px;color:var(--navy);font-size:.75rem;font-weight:700}
+.view-profile::after{content:" →"}
+.partner-badge{background:rgba(184,150,62,.12);color:#7a5c10;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:12px;max-width:680px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-header{background:var(--navy);padding:28px 32px;display:flex;gap:22px;align-items:flex-start;position:relative}
+.modal-header img{width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--gold);flex-shrink:0;background:var(--navy-mid)}
+.modal-header h2{font-family:"Merriweather",serif;color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:5px}
+.modal-header .mrole{color:var(--gold-light);font-size:.8rem;font-weight:600;margin-bottom:4px}
+.modal-header .mquals{color:rgba(255,255,255,.6);font-size:.75rem}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:rgba(255,255,255,.3)}
+.modal-body{padding:28px 32px}
+.modal-body h4{font-family:"Merriweather",serif;color:var(--navy);font-size:.9rem;font-weight:700;margin:18px 0 8px;border-left:3px solid var(--gold);padding-left:10px}
+.modal-body p{color:var(--tmid);font-size:.87rem;line-height:1.85;margin-bottom:10px}
+.cert-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.cert-tag{background:rgba(184,150,62,.12);color:#7a5c10;font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:4px}
+.srv-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.srv-tab{background:var(--off);border:1.5px solid var(--border);color:var(--navy);font-size:.78rem;font-weight:600;padding:8px 16px;border-radius:5px;cursor:pointer;transition:all .2s;font-family:"Inter",sans-serif}
+.srv-tab:hover,.srv-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.srv-panel{display:none}
+.srv-panel.active{display:grid;grid-template-columns:1fr 1.6fr;gap:40px;align-items:start}
+.srv-icon-box{background:var(--navy);border-radius:10px;padding:40px;text-align:center;position:sticky;top:90px}
+.srv-icon-box .ico{font-size:3rem;margin-bottom:16px}
+.srv-icon-box h2{font-family:"Merriweather",serif;color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.srv-icon-box p{color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.75}
+.srv-detail h3{font-family:"Merriweather",serif;color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:16px;border-bottom:2px solid var(--gold);padding-bottom:10px}
+.srv-detail ul{list-style:none;padding:0}
+.srv-detail ul li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);color:var(--tmid);font-size:.86rem;line-height:1.6}
+.srv-detail ul li::before{content:"✶";color:var(--gold);font-size:.65rem;flex-shrink:0;margin-top:4px}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:26px;border-radius:8px;transition:background .3s}
-.tc:hover{background:rgba(255,255,255,.09)}
-.qm{font-family:'Merriweather',serif;font-size:2.8rem;color:var(--gold);line-height:.5;margin-bottom:12px;display:block}
+.tc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:26px;border-radius:8px}
+.qm{font-family:"Merriweather",serif;font-size:2.8rem;color:var(--gold);line-height:.5;margin-bottom:12px;display:block}
 .tc p{color:rgba(255,255,255,.7);font-size:.86rem;line-height:1.8;font-style:italic;margin-bottom:18px}
 .ta{display:flex;align-items:center;gap:10px}
 .tav{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.82rem;flex-shrink:0}
 .tname{color:#fff;font-weight:600;font-size:.86rem}
 .trole{color:rgba(255,255,255,.4);font-size:.73rem}
-#appointment{background:var(--white)}
 .apl{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
 .aib{background:var(--navy);padding:36px;border-radius:8px}
-.aib h3{font-family:'Merriweather',serif;font-size:1.2rem;color:#fff;margin-bottom:5px}
+.aib h3{font-family:"Merriweather",serif;font-size:1.2rem;color:#fff;margin-bottom:5px}
 .aib .sub{color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:26px}
 .ir{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
 .ir:last-child{border-bottom:none}
@@ -100,23 +110,23 @@ section{padding:80px 48px}
 .ival{color:rgba(255,255,255,.65);font-size:.84rem;line-height:1.55}
 .ival a{color:rgba(255,255,255,.65);text-decoration:none}
 .afw{background:#fff;padding:36px;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 28px rgba(13,33,55,.08)}
-.afw h3{font-family:'Merriweather',serif;font-size:1.2rem;color:var(--navy);margin-bottom:4px}
+.afw h3{font-family:"Merriweather",serif;font-size:1.2rem;color:var(--navy);margin-bottom:4px}
 .fnote{color:var(--tmuted);font-size:.8rem;margin-bottom:22px}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg{margin-bottom:14px}
 .fg label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
-.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:5px;font-family:'Inter',sans-serif;font-size:.87rem;color:var(--text);background:var(--off);outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(13,33,55,.07)}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:5px;font-family:"Inter",sans-serif;font-size:.87rem;color:var(--text);background:var(--off);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);background:#fff}
 .fg textarea{resize:vertical;min-height:84px}
-.bsub{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;font-family:'Inter',sans-serif;font-size:.83rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:5px;cursor:pointer;margin-top:5px;transition:background .2s,transform .2s}
-.bsub:hover{background:var(--navy-light);transform:translateY(-1px)}
+.bsub{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;font-family:"Inter",sans-serif;font-size:.83rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:5px;cursor:pointer;margin-top:5px;transition:background .2s}
+.bsub:hover{background:var(--navy-light)}
 .fsuc{display:none;text-align:center;padding:46px 20px}
 .ck{width:60px;height:60px;background:rgba(13,33,55,.07);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 16px}
-.fsuc h4{font-family:'Merriweather',serif;color:var(--navy);font-size:1.25rem;margin-bottom:7px}
+.fsuc h4{font-family:"Merriweather",serif;color:var(--navy);font-size:1.25rem;margin-bottom:7px}
 .fsuc p{color:var(--tmuted);font-size:.88rem}
 .ctab{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);padding:60px 48px;text-align:center;position:relative}
-.ctab::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.ctab h2{font-family:'Merriweather',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);color:#fff;margin-bottom:12px;font-weight:900}
+.ctab::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ctab h2{font-family:"Merriweather",serif;font-size:clamp(1.4rem,2.5vw,1.9rem);color:#fff;margin-bottom:12px;font-weight:900}
 .ctab p{color:rgba(255,255,255,.6);font-size:.92rem;max-width:540px;margin:0 auto 26px;line-height:1.75}
 footer{background:#080F19;padding:52px 48px 26px}
 .ft{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:44px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.07)}
@@ -124,7 +134,7 @@ footer{background:#080F19;padding:52px 48px 26px}
 .fc h4{color:var(--gold-light);font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
 .fc ul{list-style:none}
 .fc ul li{margin-bottom:9px}
-.fc ul li a{color:rgba(255,255,255,.4);font-size:.81rem;text-decoration:none;transition:color .2s}
+.fc ul li a{color:rgba(255,255,255,.4);font-size:.81rem;text-decoration:none;cursor:pointer;transition:color .2s}
 .fc ul li a:hover{color:var(--gold-light)}
 .cl{display:flex;gap:7px;align-items:flex-start;margin-bottom:9px}
 .cl span{color:var(--gold);font-size:.78rem;flex-shrink:0;margin-top:1px}
@@ -132,256 +142,17 @@ footer{background:#080F19;padding:52px 48px 26px}
 .fbot{max-width:1100px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .fc2{color:rgba(255,255,255,.2);font-size:.73rem}
 @media(max-width:800px){
-nav{padding:0 16px}.nl{display:none}
-.hero{padding:90px 16px 50px}.hero-inner,.abl,.apl{grid-template-columns:1fr}
+nav{padding:0 16px}.nl li:not(.cta){display:none}
+.hero{padding:40px 16px}.hero-inner{grid-template-columns:1fr}
 .vms{padding:36px 16px}.vmi{grid-template-columns:1fr}.vmdiv{display:none}
-section{padding:56px 16px}.sgrid,.tgrid,.team-grid{grid-template-columns:1fr}
+.sec{padding:40px 16px}.page-header{padding:40px 16px}
+.tgrid{grid-template-columns:1fr}.apl{grid-template-columns:1fr}
 .fgrid{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr}
-.ctab{padding:44px 16px}}
+.ctab{padding:44px 16px}.srv-panel.active{grid-template-columns:1fr}.srv-icon-box{position:static}}
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <a href="#home" class="nb">
-    <img src="data:image/jpeg;base64,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" alt="CA India" style="height:44px;width:auto;border-radius:4px;">
-    <div>
-      <div class="nb-name">R S KUMAR &amp; ASSOCIATES</div>
-      <div class="nb-sub">Chartered Accountants &middot; Chennai</div>
-    </div>
-  </a>
-  <ul class="nl">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#testimonials">Clients</a></li>
-    <li><a href="#appointment">Contact</a></li>
-    <li class="cta"><a href="#appointment">Get Started</a></li>
-  </ul>
-</nav>
-
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div>
-      <div class="hbadge">Est. 1986 &middot; Chennai</div>
-      <h1>Unleash Your<br><span>Financial Potential</span></h1>
-      <p class="hdesc">Get the best hassle-free Accounting, Auditing &amp; Compliance services in Chennai. Trusted by 1000+ clients for over 35 years.</p>
-      <div class="hbtns">
-        <a href="#appointment" class="btn-gold">Book an Appointment</a>
-        <a href="#services" class="btn-ow">Our Services</a>
-      </div>
-    </div>
-    <div class="hstats">
-      <div class="sbox"><div class="snum">35<span class="splus">+</span></div><div class="slbl">Years in Business</div></div>
-      <div class="sbox"><div class="snum">50<span class="splus">+</span></div><div class="slbl">Qualified Trainers</div></div>
-      <div class="sbox"><div class="snum">100<span class="splus">+</span></div><div class="slbl">Sectors Analysed</div></div>
-      <div class="sbox"><div class="snum">1K<span class="splus">+</span></div><div class="slbl">Clients Served</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="vms">
-  <div class="vmi">
-    <div class="vmb">
-      <div class="vmlbl">Vision</div>
-      <h3>To be a Professional Service Firm, providing Cost Effective Business Solutions through a community of high caliber &amp; ethical individuals.</h3>
-    </div>
-    <div class="vmdiv"></div>
-    <div class="vmb">
-      <div class="vmlbl">Mission</div>
-      <h3>Quality First, Last &amp; Forever</h3>
-      <p>Committed to delivering the highest standards of professional excellence in every engagement — with integrity, precision, and dedication to our clients' success.</p>
-    </div>
-  </div>
-</div>
-
-<section id="about">
-  <div class="con">
-    <div class="abl">
-      <div class="reveal">
-        <div class="aiw">
-          <img src="https://carsk.staging-rt.com/wp-content/uploads/2024/06/18155-e1718737346163.jpg" alt="Office" onerror="this.style.minHeight='280px';this.style.background='#152D4A'">
-          <div class="abo"><div class="big">35+</div><div class="sm">Years of Trust</div></div>
-        </div>
-      </div>
-      <div class="reveal d2">
-        <p class="slabel">About Us</p>
-        <h2 class="stitle">Master Your Financial Destiny With Us</h2>
-        <div class="srule"></div>
-        <div class="abt">
-          <p><strong>R S KUMAR &amp; ASSOCIATES</strong> is a Chartered Accountant firm based in Chennai, established in 1986 by CA. S. Gopinath &amp; CA. R. Sivakumar. Over the years, a team of dedicated professionals joined to form the coveted <strong>GKA Family</strong>.</p>
-          <p>We work closely with clients to understand their unique needs and provide customized solutions to help achieve their financial goals and objectives.</p>
-          <p>Our experienced Chartered Accountants deliver personalized solutions — ensuring your financial journey is smooth, compliant and optimized for growth.</p>
-        </div>
-        <a href="#appointment" class="btn-gold" style="margin-top:10px">Schedule a Consultation</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="con">
-    <div class="reveal" style="text-align:center">
-      <p class="slabel" style="text-align:center">What We Do</p>
-      <h2 class="stitle" style="text-align:center">Solutions Tailored to Your Financial Needs</h2>
-      <div class="srule" style="margin:13px auto 36px"></div>
-    </div>
-    <div class="sgrid">
-      <div class="sc reveal d1"><div class="sic">💼</div><h3>Taxation Services</h3><p>Corporate &amp; personal tax planning, income tax returns, assessments, appeals, and advisory for individuals, firms, and corporates.</p></div>
-      <div class="sc reveal d2"><div class="sic">📊</div><h3>Internal &amp; Management Services</h3><p>Internal audits, management audits, risk assessments, and operational efficiency reviews to strengthen your organisation.</p></div>
-      <div class="sc reveal d3"><div class="sic">🏛️</div><h3>Corporate Advisory Services</h3><p>Business structuring, mergers &amp; acquisitions, due diligence, corporate law compliance, and strategic financial planning.</p></div>
-      <div class="sc reveal d1"><div class="sic">✅</div><h3>Attestation Services</h3><p>Statutory audits, certification, financial statement attestation, and regulatory compliance reporting for all entities.</p></div>
-      <div class="sc reveal d2"><div class="sic">🌐</div><h3>Global Taxation Services</h3><p>International tax advisory, transfer pricing, FEMA/FCRA compliance, and cross-border transaction structuring.</p></div>
-      <div class="sc reveal d3"><div class="sic">⭐</div><h3>Specific &amp; Value Added Services</h3><p>GST advisory, NGO compliance, forensic accounting, fraud detection, and specialised financial services.</p></div>
-      <div class="sc reveal d1"><div class="sic">🔐</div><h3>Information Systems Risk Management</h3><p>IT audit, CISA-certified reviews, IS risk assessment, and information systems assurance services.</p></div>
-      <div class="sc reveal d2"><div class="sic">📁</div><h3>Outsourced Financial Functions</h3><p>Bookkeeping, payroll processing, MCA/ROC filings, and outsourced CFO &amp; accounting management services.</p></div>
-      <div class="sc reveal d3"><div class="sic">📉</div><h3>Cost Monitoring &amp; Control Services</h3><p>Cost audits, budgeting, variance analysis, and cost optimisation strategies to improve profitability.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="team">
-  <div class="con">
-    <div class="reveal" style="text-align:center">
-      <p class="slabel" style="text-align:center">The People Behind the Practice</p>
-      <h2 class="stitle" style="text-align:center">Our Team</h2>
-      <div class="srule" style="margin:13px auto 36px"></div>
-    </div>
-    <div class="team-sub-hd reveal">Founder Partners</div>
-    <div class="team-grid">
-      <div class="tcard gold-border reveal d1">
-        <h3>Suraj Kumar S</h3>
-        <span class="role-pill">Founder Partner &middot; B.Com, FCA, CISA</span><br>
-        <span class="cert-pill">ICAI Certified: Concurrent Audit &middot; NBFC &middot; Internal Audit &middot; Forensic Accounting &amp; Fraud Detection</span>
-        <p>Chartered Accountant with over a decade of experience specializing in comprehensive financial solutions to diverse clientele across various industries, with a significant focus on the banking and non-banking financial services sector.</p>
-      </div>
-      <div class="tcard gold-border reveal d2">
-        <h3>Sivakumar R</h3>
-        <span class="role-pill">Founder Partner &middot; B.Com, FCA, LII, DISA</span><br>
-        <span class="cert-pill">ICAI Certified: Concurrent Audit of Banks</span>
-        <p>Chartered Accountant with over four decades of experience specializing in comprehensive solutions to diverse clientele across various industries, with a significant focus on audits and taxation.</p>
-      </div>
-    </div>
-    <div class="team-sub-hd reveal">Consultants</div>
-    <div class="team-grid">
-      <div class="tcard navy-border reveal d1">
-        <h3>Aarthi Balasubramanian</h3>
-        <span class="role-pill">Consultant &middot; B.Com, FCA, CISA</span>
-        <p>A Chartered Accountant with over 13 years of experience in Direct Tax Advisory, specializing in advising corporates, partnership firms, LLPs, and high-net-worth individuals on complex tax matters.</p>
-        <p>Regularly represents clients in tax assessments and appellate proceedings and advises on tax implications of business restructurings, investments, and strategic transactions.</p>
-      </div>
-      <div class="tcard navy-border reveal d2">
-        <h3>Deepthi Balasubramanian</h3>
-        <span class="role-pill">Consultant &middot; B.Com, FCA, CISA</span>
-        <p>A qualified Chartered Accountant with over 13 years of professional experience in Direct and Indirect Tax advisory. Deep expertise in advising NGOs, corporate entities, and partnership firms.</p>
-        <p>Known for a client-centric approach, strong analytical skills, and providing proactive guidance to optimize tax positions and manage risk effectively.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="con">
-    <div class="reveal" style="text-align:center">
-      <p class="slabel" style="text-align:center;color:var(--gold)">Client Testimonials</p>
-      <h2 class="stitle" style="text-align:center;color:#fff">What Our Clients Say</h2>
-      <div class="srule" style="margin:13px auto 36px"></div>
-    </div>
-    <div class="tgrid">
-      <div class="tc reveal d1"><span class="qm">"</span><p>Thanks to Mr. Sivakumar and Team, we were able to streamline our operations and achieve significant cost savings without compromising on quality.</p><div class="ta"><div class="tav">S</div><div><div class="tname">Mr. Selva</div><div class="trole">Business Owner</div></div></div></div>
-      <div class="tc reveal d2"><span class="qm">"</span><p>I highly recommend this team for their deep industry knowledge and commitment to client success. Their innovative approach brought tangible results to our organization.</p><div class="ta"><div class="tav">A</div><div><div class="tname">Mr. Anand</div><div class="trole">Corporate Client</div></div></div></div>
-      <div class="tc reveal d3"><span class="qm">"</span><p>The expertise and professionalism exceeded our expectations. Their tailored solutions addressed our immediate issues and set us on a path for sustained growth.</p><div class="ta"><div class="tav">R</div><div><div class="tname">Mr. Ramesh</div><div class="trole">Manufacturing Sector</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="appointment">
-  <div class="con">
-    <div class="reveal">
-      <p class="slabel">Get In Touch</p>
-      <h2 class="stitle">Book an Appointment</h2>
-      <div class="srule"></div>
-    </div>
-    <div class="apl">
-      <div class="aib reveal d1">
-        <h3>We're Here For You</h3>
-        <p class="sub">Our team will get back to you within 24 hours.</p>
-        <div class="ir"><div class="iico">📍</div><div><span class="ilbl">Address</span><span class="ival">AP-345, 36th Street, 7th Sector,<br>KK Nagar, Chennai – 600 078</span></div></div>
-        <div class="ir"><div class="iico">📞</div><div><span class="ilbl">Phone</span><span class="ival"><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a><br><a href="tel:04424719373">044 24719373</a></span></div></div>
-        <div class="ir"><div class="iico">✉️</div><div><span class="ilbl">Email</span><span class="ival"><a href="mailto:info@rskumar.in">info@rskumar.in</a></span></div></div>
-        <div class="ir"><div class="iico">🕐</div><div><span class="ilbl">Office Hours</span><span class="ival">Monday – Saturday, 9:00 AM – 6:00 PM</span></div></div>
-      </div>
-      <div class="afw reveal d2">
-        <div id="fc">
-          <h3>Request an Appointment</h3>
-          <p class="fnote">Fill in your details and we'll confirm your slot within 24 hours.</p>
-          <div class="fgrid">
-            <div class="fg"><label>Full Name *</label><input type="text" id="fn" placeholder="Your full name"></div>
-            <div class="fg"><label>Phone Number *</label><input type="tel" id="fp" placeholder="044 / 98XXXXXXXX"></div>
-          </div>
-          <div class="fgrid">
-            <div class="fg"><label>Preferred Date *</label><input type="date" id="fd"></div>
-            <div class="fg"><label>Preferred Time</label><select id="fti"><option value="">Select time slot</option><option>9:00 AM – 10:00 AM</option><option>10:00 AM – 11:00 AM</option><option>11:00 AM – 12:00 PM</option><option>2:00 PM – 3:00 PM</option><option>3:00 PM – 4:00 PM</option><option>4:00 PM – 5:00 PM</option></select></div>
-          </div>
-          <div class="fg"><label>Service Required</label><select id="fse"><option value="">Select a service</option><option>Taxation Services</option><option>Internal &amp; Management Services</option><option>Corporate Advisory Services</option><option>Attestation Services</option><option>Global Taxation Services</option><option>Specific &amp; Value Added Services</option><option>Information Systems Risk Management</option><option>Outsourced Financial Functions</option><option>Cost Monitoring &amp; Control Services</option><option>General Enquiry</option></select></div>
-          <div class="fg"><label>Message</label><textarea id="fm" placeholder="Briefly describe what you'd like to discuss..."></textarea></div>
-          <button class="bsub" onclick="subForm()">Confirm Appointment Request</button>
-        </div>
-        <div class="fsuc" id="fs2">
-          <div class="ck">✓</div>
-          <h4>Request Received!</h4>
-          <p>Thank you! Our team will confirm your appointment within 24 hours.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ctab">
-  <h2>Contact Us Today &amp; Start Achieving Your Business Goals</h2>
-  <p>At R S Kumar &amp; Associates, we're dedicated to providing exceptional service tailored to your unique needs.</p>
-  <a href="#appointment" class="btn-gold">Get Started Today</a>
-</div>
-
-<footer>
-  <div class="ft">
-    <div class="fb">
-      <div style="font-family:'Merriweather',serif;color:#fff;font-size:1rem;font-weight:700;letter-spacing:1px">R S KUMAR &amp; ASSOCIATES</div>
-      <p>Quality First, Last and Forever.<br>Trusted by 1000+ clients across Chennai and India since 1986.</p>
-    </div>
-    <div class="fc"><h4>Company</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Our Services</a></li><li><a href="#team">Our Team</a></li><li><a href="#appointment">Contact Us</a></li></ul></div>
-    <div class="fc"><h4>Quick Links</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#appointment">Book Appointment</a></li></ul></div>
-    <div class="fc"><h4>Contact</h4>
-      <div class="cl"><span>📍</span><p>AP-345, 36th Street, 7th Sector,<br>KK Nagar, Chennai – 600 078</p></div>
-      <div class="cl"><span>✉️</span><a href="mailto:info@rskumar.in">info@rskumar.in</a></div>
-      <div class="cl"><span>📞</span><p><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a></p></div>
-    </div>
-  </div>
-  <div class="fbot">
-    <span class="fc2">© 2024 R S Kumar &amp; Associates. All rights reserved.</span>
-    <span class="fc2">Chartered Accountants, Chennai</span>
-  </div>
-</footer>
-
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60));
-const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
-  const h=this.getAttribute('href');if(h==='#')return;
-  e.preventDefault();const t=document.querySelector(h);
-  if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
-}));
-document.getElementById('fd').min=new Date().toISOString().split('T')[0];
-function subForm(){
-  const n=document.getElementById('fn').value.trim();
-  const p=document.getElementById('fp').value.trim();
-  const d=document.getElementById('fd').value;
-  if(!n||!p||!d){alert('Please fill in Name, Phone and Date.');return;}
-  document.getElementById('fc').style.display='none';
-  document.getElementById('fs2').style.display='block';
-}
-</script>
-</body>
-</html>
+  <div class="nb" onclick="showPage('home')">
+    <img src="data:image/jpeg;base64,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
