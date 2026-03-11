@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R S KUMAR & ASSOCIATES | Chartered Accountants</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D2137;--navy-mid:#152D4A;--navy-light:#1E3D62;--gold:#B8963E;--gold-light:#D4AF5A;--white:#fff;--off:#F7F8FA;--border:#E2E6ED;--text:#1A202C;--tmid:#4A5568;--tmuted:#718096}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:2px solid var(--gold);transition:height .3s,box-shadow .3s}
+nav.sc{height:56px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.nb{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nb-name{font-family:'Merriweather',serif;color:#fff;font-size:.9rem;font-weight:700;line-height:1.2}
+.nb-sub{color:var(--gold-light);font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.nl{display:flex;gap:4px;list-style:none;align-items:center}
+.nl a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;font-weight:500;padding:6px 13px;border-radius:4px;transition:color .2s,background .2s}
+.nl a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nl .cta a{background:var(--gold);color:var(--navy);font-weight:700;padding:7px 18px;border-radius:4px}
+.nl .cta a:hover{background:var(--gold-light)}
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#1a3550 100%);display:flex;align-items:center;padding:100px 48px 60px;position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;position:relative;z-index:1}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,62,.15);border:1px solid rgba(184,150,62,.4);color:var(--gold-light);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px}
+.hbadge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:18px}
+.hero h1 span{color:var(--gold-light)}
+.hdesc{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.8;margin-bottom:32px;max-width:460px}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy);padding:12px 26px;font-weight:700;font-size:.83rem;letter-spacing:.5px;text-decoration:none;border-radius:4px;transition:background .2s,transform .2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;display:inline-block}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ow{border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:12px 26px;font-weight:600;font-size:.83rem;text-decoration:none;border-radius:4px;transition:border-color .2s,background .2s;display:inline-block}
+.btn-ow:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+.hstats{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:10px;overflow:hidden}
+.sbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:26px 20px;text-align:center;transition:background .3s}
+.sbox:hover{background:rgba(255,255,255,.11)}
+.snum{font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:var(--gold-light);line-height:1}
+.splus{font-size:1.2rem;color:var(--gold)}
+.slbl{color:rgba(255,255,255,.5);font-size:.75rem;font-weight:500;letter-spacing:.5px;margin-top:5px}
+.vms{background:var(--navy-mid);padding:52px 48px}
+.vmi{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;gap:56px;align-items:start}
+.vmdiv{background:rgba(184,150,62,.3)}
+.vmlbl{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.vmb h3{font-family:'Merriweather',serif;font-size:1.05rem;color:#fff;font-weight:700;line-height:1.6}
+.vmb p{color:rgba(255,255,255,.5);font-size:.86rem;margin-top:8px;line-height:1.75}
+section{padding:80px 48px}
+.con{max-width:1100px;margin:0 auto}
+.slabel{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.stitle{font-family:'Merriweather',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:var(--navy);line-height:1.25}
+.srule{width:40px;height:3px;background:var(--gold);margin:13px 0 32px;border-radius:2px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+#about{background:var(--off)}
+.abl{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.aiw{position:relative}
+.aiw img{width:100%;border-radius:8px;display:block;min-height:280px;object-fit:cover;background:var(--navy-mid)}
+.abo{position:absolute;bottom:-18px;right:-18px;background:var(--gold);color:var(--navy);padding:20px 24px;border-radius:6px;text-align:center;box-shadow:0 8px 30px rgba(184,150,62,.4)}
+.abo .big{font-family:'Merriweather',serif;font-size:2rem;font-weight:900;line-height:1}
+.abo .sm{font-size:.68rem;font-weight:700;letter-spacing:1px;margin-top:4px}
+.abt p{color:var(--tmid);font-size:.93rem;line-height:1.85;margin-bottom:14px}
+.abt strong{color:var(--navy)}
+#services{background:var(--white)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sc{background:var(--off);padding:28px 24px;border-radius:6px;border-left:3px solid transparent;transition:border-color .3s,box-shadow .3s,transform .3s,background .3s;cursor:default}
+.sc:hover{border-left-color:var(--gold);background:var(--white);box-shadow:0 8px 28px rgba(13,33,55,.1);transform:translateY(-4px)}
+.sic{width:44px;height:44px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px}
+.sc h3{font-family:'Merriweather',serif;font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.4}
+.sc p{color:var(--tmuted);font-size:.8rem;line-height:1.7}
+#team{background:var(--off)}
+.team-sub-hd{border-left:4px solid var(--gold);padding-left:14px;margin-bottom:22px;font-family:'Merriweather',serif;font-size:1rem;font-weight:700;color:var(--navy)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:40px}
+.tcard{background:var(--white);border-radius:6px;padding:28px;transition:box-shadow .3s,transform .3s}
+.tcard:hover{box-shadow:0 10px 28px rgba(13,33,55,.1);transform:translateY(-3px)}
+.tcard.gold-border{border-left:4px solid var(--gold)}
+.tcard.navy-border{border-left:4px solid var(--navy)}
+.tcard h3{font-family:'Merriweather',serif;font-size:1.1rem;color:var(--navy);margin-bottom:6px}
+.role-pill{display:inline-block;background:rgba(13,33,55,.08);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.cert-pill{display:inline-block;background:rgba(184,150,62,.12);color:#7a5c10;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:3px;margin-bottom:12px}
+.tcard p{color:var(--tmid);font-size:.86rem;line-height:1.8;margin-bottom:8px}
+#testimonials{background:var(--navy)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:26px;border-radius:8px;transition:background .3s}
+.tc:hover{background:rgba(255,255,255,.09)}
+.qm{font-family:'Merriweather',serif;font-size:2.8rem;color:var(--gold);line-height:.5;margin-bottom:12px;display:block}
+.tc p{color:rgba(255,255,255,.7);font-size:.86rem;line-height:1.8;font-style:italic;margin-bottom:18px}
+.ta{display:flex;align-items:center;gap:10px}
+.tav{width:36px;height:36px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.82rem;flex-shrink:0}
+.tname{color:#fff;font-weight:600;font-size:.86rem}
+.trole{color:rgba(255,255,255,.4);font-size:.73rem}
+#appointment{background:var(--white)}
+.apl{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+.aib{background:var(--navy);padding:36px;border-radius:8px}
+.aib h3{font-family:'Merriweather',serif;font-size:1.2rem;color:#fff;margin-bottom:5px}
+.aib .sub{color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:26px}
+.ir{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.ir:last-child{border-bottom:none}
+.iico{width:34px;height:34px;background:rgba(184,150,62,.15);border:1px solid rgba(184,150,62,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.ilbl{color:var(--gold-light);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:2px}
+.ival{color:rgba(255,255,255,.65);font-size:.84rem;line-height:1.55}
+.ival a{color:rgba(255,255,255,.65);text-decoration:none}
+.afw{background:#fff;padding:36px;border-radius:8px;border:1px solid var(--border);box-shadow:0 4px 28px rgba(13,33,55,.08)}
+.afw h3{font-family:'Merriweather',serif;font-size:1.2rem;color:var(--navy);margin-bottom:4px}
+.fnote{color:var(--tmuted);font-size:.8rem;margin-bottom:22px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:5px;font-family:'Inter',sans-serif;font-size:.87rem;color:var(--text);background:var(--off);outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(13,33,55,.07)}
+.fg textarea{resize:vertical;min-height:84px}
+.bsub{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;font-family:'Inter',sans-serif;font-size:.83rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:5px;cursor:pointer;margin-top:5px;transition:background .2s,transform .2s}
+.bsub:hover{background:var(--navy-light);transform:translateY(-1px)}
+.fsuc{display:none;text-align:center;padding:46px 20px}
+.ck{width:60px;height:60px;background:rgba(13,33,55,.07);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin:0 auto 16px}
+.fsuc h4{font-family:'Merriweather',serif;color:var(--navy);font-size:1.25rem;margin-bottom:7px}
+.fsuc p{color:var(--tmuted);font-size:.88rem}
+.ctab{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);padding:60px 48px;text-align:center;position:relative}
+.ctab::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ctab h2{font-family:'Merriweather',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);color:#fff;margin-bottom:12px;font-weight:900}
+.ctab p{color:rgba(255,255,255,.6);font-size:.92rem;max-width:540px;margin:0 auto 26px;line-height:1.75}
+footer{background:#080F19;padding:52px 48px 26px}
+.ft{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:44px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.07)}
+.fb p{color:rgba(255,255,255,.38);font-size:.8rem;line-height:1.75;margin-top:10px}
+.fc h4{color:var(--gold-light);font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.fc ul{list-style:none}
+.fc ul li{margin-bottom:9px}
+.fc ul li a{color:rgba(255,255,255,.4);font-size:.81rem;text-decoration:none;transition:color .2s}
+.fc ul li a:hover{color:var(--gold-light)}
+.cl{display:flex;gap:7px;align-items:flex-start;margin-bottom:9px}
+.cl span{color:var(--gold);font-size:.78rem;flex-shrink:0;margin-top:1px}
+.cl p,.cl a{color:rgba(255,255,255,.4);font-size:.8rem;line-height:1.5;text-decoration:none}
+.fbot{max-width:1100px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.fc2{color:rgba(255,255,255,.2);font-size:.73rem}
+@media(max-width:800px){
+  nav{padding:0 16px}.nl{display:none}
+  .hero{padding:90px 16px 50px}.hero-inner,.abl,.apl{grid-template-columns:1fr}
+  .vms{padding:36px 16px}.vmi{grid-template-columns:1fr}.vmdiv{display:none}
+  section{padding:56px 16px}.sgrid,.tgrid,.team-grid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}.ft{grid-template-columns:1fr 1fr}
+  .ctab{padding:44px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nb">
+    <div>
+      <div class="nb-name">R S KUMAR &amp; ASSOCIATES</div>
+      <div class="nb-sub">Chartered Accountants · Chennai</div>
+    </div>
+  </a>
+  <ul class="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#appointment">Contact</a></li>
+    <li class="cta"><a href="#appointment">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hbadge">Est. 1986 · Chennai</div>
+      <h1>Unleash Your<br><span>Financial Potential</span></h1>
+      <p class="hdesc">Get the best hassle-free Accounting, Auditing &amp; Compliance services in Chennai. Trusted by 1000+ clients for over 35 years.</p>
+      <div class="hbtns">
+        <a href="#appointment" class="btn-gold">Book an Appointment</a>
+        <a href="#services" class="btn-ow">Our Services</a>
+      </div>
+    </div>
+    <div class="hstats">
+      <div class="sbox"><div class="snum">35<span class="splus">+</span></div><div class="slbl">Years in Business</div></div>
+      <div class="sbox"><div class="snum">50<span class="splus">+</span></div><div class="slbl">Qualified Trainers</div></div>
+      <div class="sbox"><div class="snum">100<span class="splus">+</span></div><div class="slbl">Sectors Analysed</div></div>
+      <div class="sbox"><div class="snum">1K<span class="splus">+</span></div><div class="slbl">Clients Served</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / MISSION -->
+<div class="vms">
+  <div class="vmi">
+    <div class="vmb">
+      <div class="vmlbl">Vision</div>
+      <h3>To be a Professional Service Firm, providing Cost Effective Business Solutions through a community of high caliber &amp; ethical individuals.</h3>
+    </div>
+    <div class="vmdiv"></div>
+    <div class="vmb">
+      <div class="vmlbl">Mission</div>
+      <h3>Quality First, Last &amp; Forever</h3>
+      <p>Committed to delivering the highest standards of professional excellence in every engagement — with integrity, precision, and dedication to our clients' success.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="con">
+    <div class="abl">
+      <div class="reveal">
+        <div class="aiw">
+          <img src="https://carsk.staging-rt.com/wp-content/uploads/2024/06/18155-e1718737346163.jpg" alt="Office" onerror="this.style.minHeight='280px';this.style.background='#152D4A'">
+          <div class="abo"><div class="big">35+</div><div class="sm">Years of Trust</div></div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <p class="slabel">About Us</p>
+        <h2 class="stitle">Master Your Financial Destiny With Us</h2>
+        <div class="srule"></div>
+        <div class="abt">
+          <p><strong>R S KUMAR &amp; ASSOCIATES</strong> is a Chartered Accountant firm based in Chennai, established in 1986 by CA. S. Gopinath &amp; CA. R. Sivakumar. Over the years, a team of dedicated professionals joined to form the coveted <strong>GKA Family</strong>.</p>
+          <p>We work closely with clients to understand their unique needs and provide customized solutions to help achieve their financial goals and objectives.</p>
+          <p>Our experienced Chartered Accountants deliver personalized solutions — ensuring your financial journey is smooth, compliant and optimized for growth.</p>
+        </div>
+        <a href="#appointment" class="btn-gold" style="margin-top:10px">Schedule a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="con">
+    <div class="reveal" style="text-align:center">
+      <p class="slabel" style="text-align:center">What We Do</p>
+      <h2 class="stitle" style="text-align:center">Solutions Tailored to Your Financial Needs</h2>
+      <div class="srule" style="margin:13px auto 36px"></div>
+    </div>
+    <div class="sgrid">
+      <div class="sc reveal d1"><div class="sic">💼</div><h3>Taxation Services</h3><p>Corporate &amp; personal tax planning, income tax returns, assessments, appeals, and advisory for individuals, firms, and corporates.</p></div>
+      <div class="sc reveal d2"><div class="sic">📊</div><h3>Internal &amp; Management Services</h3><p>Internal audits, management audits, risk assessments, and operational efficiency reviews to strengthen your organisation.</p></div>
+      <div class="sc reveal d3"><div class="sic">🏛️</div><h3>Corporate Advisory Services</h3><p>Business structuring, mergers &amp; acquisitions, due diligence, corporate law compliance, and strategic financial planning.</p></div>
+      <div class="sc reveal d1"><div class="sic">✅</div><h3>Attestation Services</h3><p>Statutory audits, certification, financial statement attestation, and regulatory compliance reporting for all entities.</p></div>
+      <div class="sc reveal d2"><div class="sic">🌐</div><h3>Global Taxation Services</h3><p>International tax advisory, transfer pricing, FEMA/FCRA compliance, and cross-border transaction structuring.</p></div>
+      <div class="sc reveal d3"><div class="sic">⭐</div><h3>Specific &amp; Value Added Services</h3><p>GST advisory, NGO compliance, forensic accounting, fraud detection, and specialised financial services.</p></div>
+      <div class="sc reveal d1"><div class="sic">🔐</div><h3>Information Systems Risk Management</h3><p>IT audit, CISA-certified reviews, IS risk assessment, and information systems assurance services.</p></div>
+      <div class="sc reveal d2"><div class="sic">📁</div><h3>Outsourced Financial Functions</h3><p>Bookkeeping, payroll processing, MCA/ROC filings, and outsourced CFO &amp; accounting management services.</p></div>
+      <div class="sc reveal d3"><div class="sic">📉</div><h3>Cost Monitoring &amp; Control Services</h3><p>Cost audits, budgeting, variance analysis, and cost optimisation strategies to improve profitability.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="con">
+    <div class="reveal" style="text-align:center">
+      <p class="slabel" style="text-align:center">The People Behind the Practice</p>
+      <h2 class="stitle" style="text-align:center">Our Team</h2>
+      <div class="srule" style="margin:13px auto 36px"></div>
+    </div>
+
+    <div class="team-sub-hd reveal">Founder Partners</div>
+    <div class="team-grid">
+      <div class="tcard gold-border reveal d1">
+        <h3>Suraj Kumar S</h3>
+        <span class="role-pill">Founder Partner · B.Com, FCA, CISA</span><br>
+        <span class="cert-pill">ICAI Certified: Concurrent Audit · NBFC · Internal Audit · Forensic Accounting &amp; Fraud Detection</span>
+        <p>Chartered Accountant with over a decade of experience specializing in comprehensive financial solutions to diverse clientele across various industries, with a significant focus on the banking and non-banking financial services sector.</p>
+      </div>
+      <div class="tcard gold-border reveal d2">
+        <h3>Sivakumar R</h3>
+        <span class="role-pill">Founder Partner · B.Com, FCA, LII, DISA</span><br>
+        <span class="cert-pill">ICAI Certified: Concurrent Audit of Banks</span>
+        <p>Chartered Accountant with over four decades of experience specializing in comprehensive solutions to diverse clientele across various industries, with a significant focus on audits and taxation.</p>
+      </div>
+    </div>
+
+    <div class="team-sub-hd reveal">Consultants</div>
+    <div class="team-grid">
+      <div class="tcard navy-border reveal d1">
+        <h3>Aarthi Balasubramanian</h3>
+        <span class="role-pill">Consultant · B.Com, FCA, CISA</span>
+        <p>A Chartered Accountant with over 13 years of experience in Direct Tax Advisory, specializing in advising corporates, partnership firms, LLPs, and high-net-worth individuals on complex tax matters. Brings extensive experience in corporate tax planning, transaction advisory, tax controversy, and regulatory compliance.</p>
+        <p>Regularly represents clients in tax assessments and appellate proceedings and advises on tax implications of business restructurings, investments, and strategic transactions.</p>
+      </div>
+      <div class="tcard navy-border reveal d2">
+        <h3>Deepthi Balasubramanian</h3>
+        <span class="role-pill">Consultant · B.Com, FCA, CISA</span>
+        <p>A qualified Chartered Accountant with over 13 years of professional experience in Direct and Indirect Tax advisory. Possesses deep expertise in advising NGOs, corporate entities, and partnership firms — helping navigate complex tax regulations while ensuring full statutory compliance.</p>
+        <p>Known for a client-centric approach, strong analytical skills, and providing proactive guidance to optimize tax positions and manage risk effectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="con">
+    <div class="reveal" style="text-align:center">
+      <p class="slabel" style="text-align:center;color:var(--gold)">Client Testimonials</p>
+      <h2 class="stitle" style="text-align:center;color:#fff">What Our Clients Say</h2>
+      <div class="srule" style="margin:13px auto 36px"></div>
+    </div>
+    <div class="tgrid">
+      <div class="tc reveal d1"><span class="qm">"</span><p>Thanks to Mr. Sivakumar and Team, we were able to streamline our operations and achieve significant cost savings without compromising on quality. Their consultants were proactive and responsive throughout.</p><div class="ta"><div class="tav">S</div><div><div class="tname">Mr. Selva</div><div class="trole">Business Owner</div></div></div></div>
+      <div class="tc reveal d2"><span class="qm">"</span><p>I highly recommend this team for their deep industry knowledge and commitment to client success. Their innovative approach to problem-solving brought tangible results to our organization.</p><div class="ta"><div class="tav">A</div><div><div class="tname">Mr. Anand</div><div class="trole">Corporate Client</div></div></div></div>
+      <div class="tc reveal d3"><span class="qm">"</span><p>The expertise and professionalism exceeded our expectations. Their tailored solutions addressed our immediate issues and set us on a path for sustained growth.</p><div class="ta"><div class="tav">R</div><div><div class="tname">Mr. Ramesh</div><div class="trole">Manufacturing Sector</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section id="appointment">
+  <div class="con">
+    <div class="reveal">
+      <p class="slabel">Get In Touch</p>
+      <h2 class="stitle">Book an Appointment</h2>
+      <div class="srule"></div>
+    </div>
+    <div class="apl">
+      <div class="aib reveal d1">
+        <h3>We're Here For You</h3>
+        <p class="sub">Our team will get back to you within 24 hours.</p>
+        <div class="ir"><div class="iico">📍</div><div><span class="ilbl">Address</span><span class="ival">AP-345, 36th Street, 7th Sector,<br>KK Nagar, Chennai – 600 078</span></div></div>
+        <div class="ir"><div class="iico">📞</div><div><span class="ilbl">Phone</span><span class="ival"><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a><br><a href="tel:04424719373">044 24719373</a></span></div></div>
+        <div class="ir"><div class="iico">✉️</div><div><span class="ilbl">Email</span><span class="ival"><a href="mailto:info@rskumar.in">info@rskumar.in</a></span></div></div>
+        <div class="ir"><div class="iico">🕐</div><div><span class="ilbl">Office Hours</span><span class="ival">Monday – Saturday, 9:00 AM – 6:00 PM</span></div></div>
+      </div>
+      <div class="afw reveal d2">
+        <div id="fc">
+          <h3>Request an Appointment</h3>
+          <p class="fnote">Fill in your details and we'll confirm your slot within 24 hours.</p>
+          <div class="fgrid">
+            <div class="fg"><label>Full Name *</label><input type="text" id="fn" placeholder="Your full name"></div>
+            <div class="fg"><label>Phone Number *</label><input type="tel" id="fp" placeholder="044 / 98XXXXXXXX"></div>
+          </div>
+          <div class="fgrid">
+            <div class="fg"><label>Preferred Date *</label><input type="date" id="fd"></div>
+            <div class="fg"><label>Preferred Time</label><select id="fti"><option value="">Select time slot</option><option>9:00 AM – 10:00 AM</option><option>10:00 AM – 11:00 AM</option><option>11:00 AM – 12:00 PM</option><option>2:00 PM – 3:00 PM</option><option>3:00 PM – 4:00 PM</option><option>4:00 PM – 5:00 PM</option></select></div>
+          </div>
+          <div class="fg"><label>Service Required</label><select id="fse"><option value="">Select a service</option><option>Taxation Services</option><option>Internal &amp; Management Services</option><option>Corporate Advisory Services</option><option>Attestation Services</option><option>Global Taxation Services</option><option>Specific &amp; Value Added Services</option><option>Information Systems Risk Management</option><option>Outsourced Financial Functions</option><option>Cost Monitoring &amp; Control Services</option><option>General Enquiry</option></select></div>
+          <div class="fg"><label>Message</label><textarea id="fm" placeholder="Briefly describe what you'd like to discuss..."></textarea></div>
+          <button class="bsub" onclick="subForm()">Confirm Appointment Request</button>
+        </div>
+        <div class="fsuc" id="fs2">
+          <div class="ck">✓</div>
+          <h4>Request Received!</h4>
+          <p>Thank you! Our team will confirm your appointment within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="ctab">
+  <h2>Contact Us Today &amp; Start Achieving Your Business Goals</h2>
+  <p>At R S Kumar &amp; Associates, we're dedicated to providing exceptional service tailored to your unique needs.</p>
+  <a href="#appointment" class="btn-gold">Get Started Today</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div style="font-family:'Merriweather',serif;color:#fff;font-size:1rem;font-weight:700;letter-spacing:1px">R S KUMAR &amp; ASSOCIATES</div>
+      <p>Quality First, Last and Forever.<br>Trusted by 1000+ clients across Chennai and India since 1986.</p>
+    </div>
+    <div class="fc"><h4>Company</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Our Services</a></li><li><a href="#team">Our Team</a></li><li><a href="#appointment">Contact Us</a></li></ul></div>
+    <div class="fc"><h4>Quick Links</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#appointment">Book Appointment</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4>
+      <div class="cl"><span>📍</span><p>AP-345, 36th Street, 7th Sector,<br>KK Nagar, Chennai – 600 078</p></div>
+      <div class="cl"><span>✉️</span><a href="mailto:info@rskumar.in">info@rskumar.in</a></div>
+      <div class="cl"><span>📞</span><p><a href="tel:04424719353">044 24719353</a> | <a href="tel:04424719363">044 24719363</a><br><a href="tel:04424719373">044 24719373</a></p></div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span class="fc2">© 2024 R S Kumar &amp; Associates. All rights reserved.</span>
+    <span class="fc2">Chartered Accountants, Chennai</span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60));
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){
+  const h=this.getAttribute('href');
+  if(h==='#')return;
+  e.preventDefault();
+  const t=document.querySelector(h);
+  if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+document.getElementById('fd').min=new Date().toISOString().split('T')[0];
+function subForm(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const d=document.getElementById('fd').value;
+  if(!n||!p||!d){alert('Please fill in Name, Phone and Date.');return;}
+  document.getElementById('fc').style.display='none';
+  document.getElementById('fs2').style.display='block';
+}
+</script>
+</body>
+</html>
